@@ -5,8 +5,8 @@ import './App.css';
 function App() {
   return (
     <>
-    <Navbar title="My App"/>
-    <div className='container'>
+    <Navbar title="TextUtils"/>
+    <div className='container my-3'>
       <TextFrom heading="Enter here your text"/>
     </div>
     </>
