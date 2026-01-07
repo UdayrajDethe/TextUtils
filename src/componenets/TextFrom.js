@@ -53,6 +53,14 @@ export default function TextFrom(props) {
         setText(newText)
     }
 
+    //specker function
+    const speak = () => {
+        let msg = new SpeechSynthesisUtterance();
+        msg.text = text;
+        window.speechSynthesis.speak(msg);
+        }
+
+        
 
   return (
     <>
@@ -68,6 +76,7 @@ export default function TextFrom(props) {
             <button className="btn btn-primary mx-1" onClick={handleNumRmClick}>Remove Numbers </button>
             <button className="btn btn-primary mx-1" onClick={handleRmSpcaesClick}>Remove Extra Spaces </button>
             <button className="btn btn-danger mx-1" onClick={handleClearClick}>Clear Text </button>
+            <button type="submit" onClick={speak} className="btn btn-warning mx-2 my-2">Speak</button>
         </div>
         <div className="container my-3">
             <h2>Your text summary</h2>
