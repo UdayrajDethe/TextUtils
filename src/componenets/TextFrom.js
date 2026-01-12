@@ -11,12 +11,14 @@ export default function TextFrom(props) {
     const handUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText);
+        props.showAlert("Converted to Uppercase!", "success");
     }
 
     // Lowercase function
     const handLoClick = () => {
         let newText = text.toLowerCase();
         setText(newText);
+        props.showAlert("Converted to Lowercase!", "success");
     }
 
     // Remove punctuations
@@ -25,6 +27,7 @@ export default function TextFrom(props) {
         let result = text.replace(puncs, '');
         let newText = result;
         setText(newText)
+        props.showAlert("Punctuations Removed!", "success");
     }
 
     // Remove New line
@@ -32,6 +35,7 @@ export default function TextFrom(props) {
         let someText = text.replace(/(\n|\r)/gm, "");
         let newText = someText;
         setText(newText)
+        props.showAlert("New Lines Removed!", "success");
     }
 
     // Remove Numbers
@@ -39,18 +43,21 @@ export default function TextFrom(props) {
         let num = text.replace(/[0-9]/g, "");
         let newText = num;
         setText(newText)
+        props.showAlert("Numbers Removed!", "success");
     }
 
     // Remove Extra Spaces
     const handleRmSpcaesClick = () => {
         let newText = text.split(/[ ]+/);
         setText(newText.join(" "))
+        props.showAlert("Extra Spaces Removed!", "success");
     }
 
     // Clear Text
     const handleClearClick = () => {
         let newText = '';
         setText(newText)
+        props.showAlert("Text Cleared!", "success");
     }
 
     //specker function
@@ -58,6 +65,7 @@ export default function TextFrom(props) {
         let msg = new SpeechSynthesisUtterance();
         msg.text = text;
         window.speechSynthesis.speak(msg);
+        props.showAlert("Speeking!", "success");
         }
 
         
