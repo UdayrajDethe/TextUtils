@@ -1,5 +1,5 @@
 import Navbar from './componenets/Navbar';
-// import About from './componenets/About';
+import About from './componenets/About';
 import TextFrom from './componenets/TextFrom';
 import './App.css';
 import { useState } from 'react';
