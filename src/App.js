@@ -4,6 +4,13 @@ import TextFrom from './componenets/TextFrom';
 import './App.css';
 import { useState } from 'react';
 import Alert from './componenets/Alert';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  // HashRouter as Router,
+  Routes ,
+  Route
+} from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState('light'); // Whether dark mode is enabled or not
@@ -35,12 +42,16 @@ function App() {
 
   return (
     <>
-    <Navbar title="TextUtils" mode={mode} click={click}/>
-    <Alert alert = {alert}/>
-    <div className='container my-3'>
-      <TextFrom heading="Enter here your text" showAlert={showAlert} mode={mode}/>
-      {/* <About/> */}
-    </div>
+    <Router>
+      <Navbar title="TextUtils" mode={mode} click={click}/>
+      <Alert alert = {alert}/>
+      <div className='container my-3'>
+        <Routes>
+            <Route exact path="about" element={<About />}></Route>
+            <Route exact path="/" element={<TextFrom heading="Enter here your text" showAlert={showAlert} mode={mode}/>}></Route>
+          </Routes >
+      </div>
+    </Router>
     </>
   );
 }
